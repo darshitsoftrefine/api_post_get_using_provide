@@ -33,7 +33,8 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
                   itemCount: value.contDetail?.length,
               itemBuilder: (context, index) {
-                return Padding(
+                return value.contDetail?[index].postedBy.profilePicUrl == null? Center(child: CircularProgressIndicator()):
+                  Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Column(
