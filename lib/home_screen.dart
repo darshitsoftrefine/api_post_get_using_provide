@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
 
   String baseUrl = 'https://coupinos-app.azurewebsites.net';
 
+
   @override
   void initState(){
     super.initState();
@@ -30,11 +31,11 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Consumer<Api_Provider>(
           builder: (context, value, child) {
-            return ListView.builder(
+            return value.isLoading ? Center(child: CircularProgressIndicator()):
+              ListView.builder(
                   itemCount: value.contDetail?.length,
               itemBuilder: (context, index) {
-                return value.contDetail?[index].postedBy.profilePicUrl == null? Center(child: CircularProgressIndicator()):
-                  Padding(
+                return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Center(
                     child: Column(
